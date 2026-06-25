@@ -29,17 +29,32 @@
  *   / countByStatus has typed parameters and return type, returns the correct result
  */
 
+
+export interface SimpleTestCase {
+  id: number;
+  name: string;
+  status: "passed" | "failed" | "skipped";
+}
+
 // TODO: додай тип / add a type
-export const testCases = [
+
+export const testCases: SimpleTestCase[] = [
   { id: 1, name: "Login with valid credentials", status: "passed" },
   { id: 2, name: "Login with invalid password", status: "failed" },
   { id: 3, name: "Logout from dashboard", status: "passed" },
   { id: 4, name: "Reset password flow", status: "skipped" },
 ];
 
-export function countByStatus(cases, status) {
+export function countByStatus(cases: SimpleTestCase[], status: "passed" | "failed" | "skipped"): number {
   // TODO: реалізуй / implement
-  return 0;
+
+  let count = 0;
+  for (let i = 0; i < cases.length; i++) {
+  if (cases[i].status === status) {
+      count = count + 1;
+  }
+}
+  return count;
 }
 
 export {};

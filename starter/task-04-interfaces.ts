@@ -29,8 +29,29 @@
 
 // TODO: опиши й експортуй TestCase / define and export TestCase
 
+export interface TestCase {
+  id: number;
+  title: string;
+  status: "passed" | "failed" | "skipped";
+  owner?: string;
+  tags: string[];
+}
+
 // TODO: firstCase (без owner / without owner) — export const firstCase: TestCase = ...
 
-// TODO: secondCase (з owner / with owner) — export const secondCase: TestCase = ...
+export const firstCase: TestCase = {
+  id: 1,
+  title: "Verify login with valid credentials",
+  status: "passed",
+  tags: ["smoke", "regression"]
+};
 
+// TODO: secondCase (з owner / with owner) — export const secondCase: TestCase = ...
+export const secondCase: TestCase = {
+  id: 2,
+  title: "Verify password reset with invalid email",
+  status: "failed",
+  owner: "John Dou",
+  tags: ["auth", "security"]
+}
 export {};
